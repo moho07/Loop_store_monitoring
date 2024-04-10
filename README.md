@@ -95,15 +95,17 @@ git clone https://github.com/Apoorvg2000/store_monitoring_loop.git
 pip install -r requirements.txt
 ```
 
-5. Setup a Postgresql database, and change the database credentials in the `main/settings.py` file. Refer to this [link](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb#3-configuring-postgres) to setup a PostgreSQL database.
+5. Setup a Postgresql database, and change the database credentials in the `main/settings.py` file. 
 
-6. To populate the database with the data in .csv files in `scripts/data` directory, run the below command -
+6. To populate the database with the data in .csv files in `scripts/data` directory, run the following commands -
 
 ```
+python3 manage.py migrate
 python3 manage.py runscript load
 ```
 
 This will populate the database with all the required data before running the server.
+Note: It may take a long time to populate all the data
 
 7. After all the above steps are completed, run the below command to launch the server -
 
@@ -118,9 +120,3 @@ Now open your web browser and enter the following address to launch the web app 
 **NOTE**: We are generating report for only the first 100 stores as it will take a lot of time to generate the report for all the stores. We can change that number anytime in the code.
 
 9. To view the generated report, enter the the `report_id` and hit `Get Report` button. This will show the generated report and its url on the local computer, on the webpage if it is completed with its `Status` as "Completed", otherwise its `Status` will be shown as "Running".
-
-## Demo Video
-
-Refer to this [link](https://drive.google.com/file/d/1fgLPQOHqMFRLEEwXjqcU5HHz59YWjuyU/view?usp=share_link) to watch the demo video.
-
-
